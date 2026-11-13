@@ -1,0 +1,231 @@
+{
+  "business": {
+    "name": "Olive & Ember",
+    "type": "Mediterranean restaurant (demo business)",
+    "phone": "+355 69 000 0000",
+    "whatsapp": "+355 69 000 0000",
+    "address": "Rruga e Durrësit 12, Tirana",
+    "handoffMessage": "I've passed this to the team. Someone will reply on WhatsApp within 30 minutes during opening hours."
+  },
+  "faqs": [
+    {
+      "id": "hours",
+      "q": "What are your opening hours?",
+      "keywords": [
+        "open",
+        "opening",
+        "hours",
+        "close",
+        "closing",
+        "time",
+        "today",
+        "sunday",
+        "monday",
+        "orari",
+        "orario"
+      ],
+      "a": "We're open Tuesday to Sunday, 12:00–23:00. The kitchen takes last orders at 22:15. We're closed on Mondays."
+    },
+    {
+      "id": "location",
+      "q": "Where are you located?",
+      "keywords": [
+        "where",
+        "address",
+        "location",
+        "located",
+        "find",
+        "map",
+        "directions",
+        "adresa",
+        "dove"
+      ],
+      "a": "We're at Rruga e Durrësit 12, Tirana, a 5-minute walk from Skanderbeg Square."
+    },
+    {
+      "id": "parking",
+      "q": "Is there parking?",
+      "keywords": [
+        "parking",
+        "park",
+        "car",
+        "garage",
+        "parkim"
+      ],
+      "a": "There's no private car park, but the public garage on Rruga e Kavajës is 200 m away and costs about 200 ALL per hour."
+    },
+    {
+      "id": "vegan",
+      "q": "Do you have vegan or vegetarian options?",
+      "keywords": [
+        "vegan",
+        "vegetarian",
+        "plant",
+        "meat",
+        "veggie",
+        "vegetariane"
+      ],
+      "a": "Yes. About a third of the menu is vegetarian and we have five fully vegan dishes, including the grilled aubergine with tahini and the wild-mushroom orzo."
+    },
+    {
+      "id": "gluten",
+      "q": "Can you cater for gluten-free or allergies?",
+      "keywords": [
+        "gluten",
+        "allergy",
+        "allergies",
+        "allergic",
+        "coeliac",
+        "celiac",
+        "nuts",
+        "nut",
+        "lactose",
+        "dairy",
+        "intolerance"
+      ],
+      "a": "We can adapt most dishes for gluten-free and nut-free diets. Please tell your server about any allergy when you order, and the kitchen will confirm what's safe. We can't guarantee a trace-free kitchen."
+    },
+    {
+      "id": "prices",
+      "q": "How much does a meal cost?",
+      "keywords": [
+        "price",
+        "prices",
+        "cost",
+        "expensive",
+        "cheap",
+        "budget",
+        "much",
+        "menu",
+        "cmimi",
+        "prezzo"
+      ],
+      "a": "Starters are 600–1,200 ALL, mains 1,400–2,800 ALL and desserts around 700 ALL. Most guests spend 2,500–3,500 ALL per person with a drink."
+    },
+    {
+      "id": "kids",
+      "q": "Is it child friendly?",
+      "keywords": [
+        "kids",
+        "children",
+        "child",
+        "baby",
+        "highchair",
+        "family",
+        "pram",
+        "stroller"
+      ],
+      "a": "Yes, families are welcome. We have high chairs and a small kids' menu (pasta, grilled chicken, fries) at 800 ALL."
+    },
+    {
+      "id": "groups",
+      "q": "Do you host private events or large groups?",
+      "keywords": [
+        "group",
+        "groups",
+        "private",
+        "event",
+        "events",
+        "party",
+        "birthday",
+        "wedding",
+        "corporate",
+        "large"
+      ],
+      "a": "We take groups of up to 40 in the upstairs room, with set menus from 3,000 ALL per person. Send us your date and group size and the events manager will send options."
+    },
+    {
+      "id": "delivery",
+      "q": "Do you deliver?",
+      "keywords": [
+        "delivery",
+        "deliver",
+        "takeaway",
+        "take",
+        "away",
+        "wolt",
+        "order",
+        "home"
+      ],
+      "a": "We deliver through Wolt within central Tirana, and takeaway orders can be collected from the front counter."
+    },
+    {
+      "id": "payment",
+      "q": "Which payment methods do you accept?",
+      "keywords": [
+        "pay",
+        "payment",
+        "card",
+        "cash",
+        "visa",
+        "mastercard",
+        "euro",
+        "euros",
+        "eur"
+      ],
+      "a": "We accept cash (ALL or EUR) and all major cards, including contactless."
+    },
+    {
+      "id": "pets",
+      "q": "Can I bring my dog?",
+      "keywords": [
+        "dog",
+        "dogs",
+        "pet",
+        "pets",
+        "cat"
+      ],
+      "a": "Well-behaved dogs are welcome on the terrace. Inside, only assistance dogs, please."
+    },
+    {
+      "id": "wifi",
+      "q": "Do you have Wi-Fi?",
+      "keywords": [
+        "wifi",
+        "wi-fi",
+        "internet",
+        "password"
+      ],
+      "a": "Yes, free Wi-Fi. Ask your server for today's password."
+    }
+  ],
+  "intents": {
+    "booking": [
+      "book",
+      "booking",
+      "reserve",
+      "reservation",
+      "table",
+      "rezervim",
+      "prenotare",
+      "prenotazione",
+      "seats"
+    ],
+    "human": [
+      "human",
+      "person",
+      "staff",
+      "manager",
+      "someone",
+      "real",
+      "agent",
+      "speak",
+      "talk",
+      "call",
+      "complaint",
+      "complain"
+    ]
+  },
+  "guardrails": {
+    "minScore": 0.34,
+    "fallback": "I don't want to guess about that. Would you like me to pass your question to the team? They'll reply on WhatsApp.",
+    "blocked": [
+      "ignore previous",
+      "ignore all previous",
+      "system prompt",
+      "you are now",
+      "developer mode",
+      "reveal your instructions"
+    ]
+  }
+}

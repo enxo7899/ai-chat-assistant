@@ -1,0 +1,16 @@
+{
+  "name": "ai-chat-assistant",
+  "version": "1.0.0",
+  "description": "Website + WhatsApp AI assistant that answers from a business's own FAQs, books tables and hands off to a person.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "whatsapp": "node server/whatsapp-webhook.js",
+    "dev": "python3 -m http.server 5173"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0"
+  },
+  "license": "MIT"
+}
