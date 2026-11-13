@@ -44,21 +44,19 @@ export async function mountWidget({ kbUrl, webhook, open = false } = {}) {
   const root = document.createElement("div");
   root.className = "cw";
   root.innerHTML = `
-    <button class="cw-launch" aria-label="Open chat">
-      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z"/></svg>
-    </button>
+    <button class="cw-launch" aria-label="Open chat"><span class="dot"></span>Ask us anything</button>
     <section class="cw-panel" role="dialog" aria-label="Chat with ${kb.business.name}">
       <header class="cw-head">
-        <div class="cw-avatar">${kb.business.name[0]}</div>
-        <div><strong>${kb.business.name}</strong><span>Replies instantly · team on WhatsApp</span></div>
+        <div><strong>${kb.business.name}</strong><span>Answers instantly · team on WhatsApp</span></div>
         <button class="cw-close" aria-label="Close chat">×</button>
       </header>
       <div class="cw-log" aria-live="polite"></div>
       <div class="cw-chips"></div>
       <form class="cw-form">
-        <input class="cw-input" placeholder="Type a message…" autocomplete="off" aria-label="Message" />
-        <button class="cw-send" aria-label="Send">➤</button>
+        <input class="cw-input" placeholder="Ask about tables, menu, hours…" autocomplete="off" aria-label="Message" />
+        <button class="cw-send">Send</button>
       </form>
+      <div class="cw-foot">Answers come from the restaurant's own information</div>
     </section>`;
   document.body.appendChild(root);
 
@@ -117,17 +115,18 @@ export async function mountWidget({ kbUrl, webhook, open = false } = {}) {
     input.value = "";
   };
   const toggle = (state) => {
+    if (state === undefined) state = !root.classList.contains("cw-open");
     root.classList.toggle("cw-open", state);
-    if (root.classList.contains("cw-open")) input.focus();
+    if (state && matchMedia("(min-width: 521px)").matches) input.focus();
   };
   root.querySelector(".cw-launch").onclick = () => toggle();
   root.querySelector(".cw-close").onclick = () => toggle(false);
 
-  bubble(`Hi! I'm the ${kb.business.name} assistant. Ask me anything, book a table, or ask for a person.`, "bot");
-  setChips(["Opening hours", "Book a table", "Vegan options", "Talk to a person"]);
+  bubble(`Hello! I can answer questions about ${kb.business.name}, book you a table, or pass you to the team.`, "bot");
+  setChips(["Book a table", "Are you open on Monday?", "Vegan options?", "Talk to a person"]);
   if (open) toggle(true);
 
-  return { send, kb };
+  return { send, kb, open: () => toggle(true) };
 }
 
 // Auto-mount when loaded with data attributes.

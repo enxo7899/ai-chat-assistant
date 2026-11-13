@@ -2,7 +2,7 @@
 
 An AI customer assistant that answers questions from a business's **own** information, takes bookings, captures leads and hands the conversation to a person when it isn't sure. The same engine runs the website widget and a WhatsApp Business webhook.
 
-**▶ Live demo: https://enxo7899.github.io/ai-chat-assistant/** (a fictional restaurant, Olive & Ember; open the chat in the corner)
+**▶ Live demo: https://enxo7899.github.io/ai-chat-assistant/** (a fictional restaurant, Olive & Ember. Tap a question in the "Today" card or book a table, then scroll to *Behind the counter* to see what the owner receives.)
 
 ![Booking a table through the website chat](docs/booking.png)
 
@@ -69,7 +69,10 @@ Bookings, hand-offs and guardrails are deterministic code, not model output, so 
 npm install
 npm test          # 22 tests: FAQ matching, booking flow, hand-off, guardrails, sessions
 npm run dev       # http://localhost:5173
+npm run screenshots   # with dev running: regenerates docs/*.png and fails loudly on console errors
 ```
+
+Add `?open&script=booking` (or `faq`, `handoff`) to the demo URL to replay a scripted conversation.
 
 ## Tests
 

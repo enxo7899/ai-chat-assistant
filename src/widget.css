@@ -1,27 +1,63 @@
-.cw { --cw-accent: #2f5d50; --cw-accent-2: #e2b65b; --cw-bg: #fff; --cw-ink: #1d2320; --cw-muted: #6b746f; --cw-soft: #f1f4f2; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--cw-ink); }
-.cw-launch { position: fixed; right: 22px; bottom: 22px; width: 60px; height: 60px; border-radius: 50%; border: 0; background: var(--cw-accent); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.25); cursor: pointer; display: grid; place-items: center; z-index: 9998; transition: transform .2s; }
-.cw-launch:hover { transform: scale(1.06); }
-.cw-panel { position: fixed; right: 22px; bottom: 96px; width: min(380px, calc(100vw - 32px)); height: min(580px, calc(100vh - 130px)); background: var(--cw-bg); border-radius: 18px; box-shadow: 0 24px 60px rgba(0,0,0,.28); display: flex; flex-direction: column; overflow: hidden; z-index: 9999; opacity: 0; pointer-events: none; transform: translateY(14px); transition: .22s ease; }
+/* Chat widget. Brand it by overriding the --cw-* variables on .cw */
+.cw {
+  --cw-accent: #b8461f;
+  --cw-accent-ink: #fff;
+  --cw-head: #1f1a14;
+  --cw-bg: #fffdf9;
+  --cw-soft: #f4efe6;
+  --cw-ink: #1f1a14;
+  --cw-muted: #7a6f62;
+  --cw-line: #e6ddcf;
+  --cw-font: "Instrument Sans", system-ui, sans-serif;
+  --cw-display: "Fraunces", Georgia, serif;
+  font: 15px/1.45 var(--cw-font);
+  color: var(--cw-ink);
+}
+.cw-launch {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9998;
+  display: flex; align-items: center; gap: 10px;
+  height: 52px; padding: 0 20px 0 16px; border: 0; border-radius: 26px;
+  background: var(--cw-head); color: #fff; font: 600 15px var(--cw-font);
+  box-shadow: 0 8px 24px rgba(31, 26, 20, .28); cursor: pointer; transition: transform .15s;
+}
+.cw-launch:hover { transform: translateY(-2px); }
+.cw-launch .dot { width: 9px; height: 9px; border-radius: 50%; background: #7bc47f; box-shadow: 0 0 0 3px rgba(123, 196, 127, .25); }
+.cw-open .cw-launch { opacity: 0; pointer-events: none; }
+.cw-panel {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+  width: min(380px, calc(100vw - 32px)); height: min(600px, calc(100vh - 48px));
+  background: var(--cw-bg); border: 1px solid var(--cw-line); border-radius: 14px;
+  box-shadow: 0 30px 60px -20px rgba(31, 26, 20, .45);
+  display: flex; flex-direction: column; overflow: hidden; margin: 0; padding: 0; box-sizing: border-box;
+  opacity: 0; pointer-events: none; transform: translateY(12px) scale(.98); transform-origin: bottom right; transition: .2s ease;
+}
 .cw-open .cw-panel { opacity: 1; pointer-events: auto; transform: none; }
-.cw-head { display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: var(--cw-accent); color: #fff; }
-.cw-head span { display: block; font-size: 12px; opacity: .8; }
-.cw-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--cw-accent-2); color: var(--cw-accent); display: grid; place-items: center; font-weight: 700; }
-.cw-close { margin-left: auto; background: none; border: 0; color: #fff; font-size: 26px; cursor: pointer; line-height: 1; }
-.cw-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: var(--cw-soft); }
-.cw-msg { max-width: 84%; padding: 9px 13px; border-radius: 14px; white-space: pre-wrap; animation: cw-in .2s ease; }
-.cw-msg small { display: block; margin-top: 6px; font-size: 11px; color: var(--cw-muted); }
-.cw-bot { background: #fff; align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
-.cw-user { background: var(--cw-accent); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
-.cw-typing { display: flex; gap: 4px; }
-.cw-typing i { width: 7px; height: 7px; border-radius: 50%; background: #b8c0bb; animation: cw-dot 1s infinite; }
+.cw-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--cw-head); color: #f4efe6; }
+.cw-head strong { font: 500 19px/1.1 var(--cw-display); letter-spacing: -.2px; display: block; }
+.cw-head span { font-size: 12px; color: #c9bfb1; display: flex; align-items: center; gap: 6px; }
+.cw-head span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #7bc47f; }
+.cw-close { margin-left: auto; width: 32px; height: 32px; border-radius: 8px; border: 0; background: transparent; color: #f4efe6; font-size: 22px; cursor: pointer; }
+.cw-close:hover { background: rgba(255, 255, 255, .1); }
+.cw-log { flex: 1; overflow-y: auto; padding: 18px 16px 8px; display: flex; flex-direction: column; gap: 10px; background: var(--cw-soft); }
+.cw-msg { max-width: 85%; padding: 9px 13px; border-radius: 12px; white-space: pre-wrap; animation: cw-in .18s ease-out; }
+.cw-msg small { display: block; margin-top: 6px; font-size: 11.5px; color: var(--cw-muted); }
+.cw-bot { align-self: flex-start; background: #fff; border: 1px solid var(--cw-line); border-top-left-radius: 4px; }
+.cw-user { align-self: flex-end; background: var(--cw-accent); color: var(--cw-accent-ink); border-top-right-radius: 4px; }
+.cw-typing { display: flex; gap: 4px; padding: 13px; }
+.cw-typing i { width: 6px; height: 6px; border-radius: 50%; background: #b9ad9d; animation: cw-dot 1s infinite; }
 .cw-typing i:nth-child(2) { animation-delay: .15s; } .cw-typing i:nth-child(3) { animation-delay: .3s; }
-.cw-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 12px; background: var(--cw-soft); }
-.cw-chips:not(:empty) { padding-bottom: 10px; }
-.cw-chips button { border: 1px solid var(--cw-accent); background: #fff; color: var(--cw-accent); border-radius: 999px; padding: 5px 11px; font-size: 13px; cursor: pointer; }
-.cw-chips button:hover { background: var(--cw-accent); color: #fff; }
-.cw-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #e3e7e5; }
-.cw-input { flex: 1; border: 1px solid #d5dbd8; border-radius: 999px; padding: 10px 14px; font: inherit; outline: none; }
+.cw-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px; background: var(--cw-soft); }
+.cw-chips:not(:empty) { padding-bottom: 12px; }
+.cw-chips button { border: 1px solid var(--cw-line); background: #fff; color: var(--cw-ink); border-radius: 8px; padding: 6px 10px; font: 13px var(--cw-font); cursor: pointer; }
+.cw-chips button:hover { border-color: var(--cw-accent); color: var(--cw-accent); }
+.cw-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--cw-line); background: var(--cw-bg); }
+.cw-input { flex: 1; min-width: 0; border: 1px solid var(--cw-line); border-radius: 10px; padding: 10px 12px; font: 15px var(--cw-font); color: var(--cw-ink); background: #fff; outline: none; }
 .cw-input:focus { border-color: var(--cw-accent); }
-.cw-send { width: 42px; border-radius: 50%; border: 0; background: var(--cw-accent); color: #fff; cursor: pointer; }
-@keyframes cw-in { from { opacity: 0; transform: translateY(6px); } }
+.cw-send { border: 0; border-radius: 10px; padding: 0 14px; background: var(--cw-accent); color: var(--cw-accent-ink); font: 600 14px var(--cw-font); cursor: pointer; }
+.cw-foot { font-size: 11px; color: var(--cw-muted); text-align: center; padding: 0 12px 10px; background: var(--cw-bg); }
+@media (max-width: 520px) {
+  .cw-panel { right: 0; bottom: 0; width: 100vw; height: 100dvh; border-radius: 0; border: 0; }
+  .cw-launch { right: 16px; bottom: 16px; }
+}
+@keyframes cw-in { from { opacity: 0; transform: translateY(4px); } }
 @keyframes cw-dot { 50% { opacity: .3; } }

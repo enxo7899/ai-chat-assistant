@@ -5,7 +5,9 @@
     "phone": "+355 69 000 0000",
     "whatsapp": "+355 69 000 0000",
     "address": "Rruga e Durrësit 12, Tirana",
-    "handoffMessage": "I've passed this to the team. Someone will reply on WhatsApp within 30 minutes during opening hours."
+    "handoffMessage": "I've passed this to the team. Someone will reply on WhatsApp within 30 minutes during opening hours.",
+    "tagline": "Wood fire and Albanian produce, a few minutes from Skanderbeg Square.",
+    "email": "tables@oliveandember.example"
   },
   "faqs": [
     {
@@ -65,7 +67,7 @@
         "veggie",
         "vegetariane"
       ],
-      "a": "Yes. About a third of the menu is vegetarian and we have five fully vegan dishes, including the grilled aubergine with tahini and the wild-mushroom orzo."
+      "a": "Yes. Vegetarian dishes are marked V and vegan ones VG on the menu, for example the grilled aubergine with tahini and the wild-mushroom orzo. The kitchen can make several other dishes vegan on request."
     },
     {
       "id": "gluten",
@@ -187,6 +189,37 @@
         "password"
       ],
       "a": "Yes, free Wi-Fi. Ask your server for today's password."
+    },
+    {
+      "id": "menu",
+      "q": "What's on the menu?",
+      "keywords": [
+        "menu",
+        "dishes",
+        "dish",
+        "food",
+        "eat",
+        "speciality",
+        "specialty",
+        "recommend",
+        "signature",
+        "traditional",
+        "albanian"
+      ],
+      "a": "Mediterranean and Albanian dishes cooked over wood fire: byrek, grilled octopus, tavë kosi, whole sea bream, ribeye and trilece to finish. The full menu with prices is on this page."
+    },
+    {
+      "id": "fish",
+      "q": "Do you serve fish or seafood?",
+      "keywords": [
+        "fish",
+        "seafood",
+        "octopus",
+        "bream",
+        "prawns",
+        "shellfish"
+      ],
+      "a": "Yes: grilled octopus to start and a whole wood-grilled sea bream as a main. The fish changes with the day's catch, so ask your server what's in."
     }
   ],
   "intents": {
@@ -227,5 +260,116 @@
       "developer mode",
       "reveal your instructions"
     ]
-  }
+  },
+  "menu": [
+    {
+      "section": "To start",
+      "items": [
+        {
+          "name": "Byrek me spinaq",
+          "desc": "Hand-rolled filo, spinach, gjizë",
+          "price": 650,
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "name": "Grilled octopus",
+          "desc": "Charred lemon, capers, Përmet olive oil",
+          "price": 1200,
+          "tags": []
+        },
+        {
+          "name": "Ember-roasted peppers",
+          "desc": "Whipped feta, walnuts, mint",
+          "price": 700,
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "name": "Grilled aubergine",
+          "desc": "Tahini, pomegranate, flatbread",
+          "price": 800,
+          "tags": [
+            "vg"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "From the fire",
+      "items": [
+        {
+          "name": "Tavë kosi",
+          "desc": "Lamb baked in yoghurt and egg, Elbasan style",
+          "price": 1600,
+          "tags": []
+        },
+        {
+          "name": "Wild-mushroom orzo",
+          "desc": "Porcini, thyme, toasted breadcrumbs",
+          "price": 1400,
+          "tags": [
+            "vg"
+          ]
+        },
+        {
+          "name": "Whole sea bream",
+          "desc": "Wood-grilled, salsa verde, greens",
+          "price": 2400,
+          "tags": [
+            "gf"
+          ]
+        },
+        {
+          "name": "Beef ribeye, 300 g",
+          "desc": "Ember potatoes, chimichurri",
+          "price": 2800,
+          "tags": [
+            "gf"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "To finish",
+      "items": [
+        {
+          "name": "Trilece",
+          "desc": "Three-milk cake, burnt caramel",
+          "price": 700,
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "name": "Fig and walnut tart",
+          "desc": "Mountain honey, crème fraîche",
+          "price": 700,
+          "tags": [
+            "v"
+          ]
+        }
+      ]
+    }
+  ],
+  "hoursTable": [
+    [
+      "Monday",
+      "Closed"
+    ],
+    [
+      "Tuesday – Saturday",
+      "12:00 – 23:00"
+    ],
+    [
+      "Sunday",
+      "12:00 – 23:00"
+    ],
+    [
+      "Kitchen",
+      "last orders 22:15"
+    ]
+  ]
 }
